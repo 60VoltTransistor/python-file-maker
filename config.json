@@ -1,0 +1,12 @@
+{
+    "parentTarget": "",
+    "previousTarget": "",
+    "childrenNames":
+        [
+            "folder1",
+            "folder2",
+            "folder3"
+        ],
+    "debug": true,
+    "indent": 4
+}
