@@ -6,6 +6,6 @@
             "folder2",
             "folder3"
         ],
-    "debug": true,
+    "debug": false,
     "indent": 4
 }
