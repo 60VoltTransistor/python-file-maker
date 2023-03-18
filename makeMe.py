@@ -6,13 +6,6 @@ debug = False
 indent = 0
 parentName = ""
 
-def printDebugInfo():
-    print("1.", parentTarget)
-    print("2.", childrenNames)
-    print("3.", indent)
-    print("4.", debug)
-    print("5.", os.path.dirname(os.getcwd()))
-
 def getPtarget():
     valid_response = False
     cwd = os.path.dirname(os.getcwd())
@@ -103,7 +96,6 @@ try:
             childrenNames.append(child)
         debug = jData['debug']
         indent = jData['indent']
-        success = True
 except IOError as e:
     print(e)
 
