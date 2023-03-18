@@ -132,7 +132,7 @@ same = all((newJSON.get(k) == v for k, v in jData.items()))
 
 #create temp json file
 tempfile = os.path.join(os.path.dirname('config.json'), str(uuid.uuid4()))
-print(f'\n{tempfile}\n')
+
 #to write or not to write thy json
 if same == False:
     with open(tempfile, 'w') as f:
