@@ -14,7 +14,7 @@ def getPtarget():
         user_response = str(input("Enter directory to create parent folder in: "))
         if user_response == '?':
             print(f'Enter a response in a similar form to > {cwd}\nEnter C to use the current directory path')
-        elif user_response == 'c':
+        elif user_response.lower() == 'c':
             pTarget = cwd
             valid_response = True
             continue
