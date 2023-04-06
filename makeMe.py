@@ -17,11 +17,9 @@ def getPtarget():
         elif user_response.lower() == 'c':
             pTarget = cwd
             valid_response = True
-            continue
         else:
             if os.path.exists(user_response) == False:
                 print("Invlid parent folder location")
-                continue
             else:
                 pTarget = user_response
                 valid_response = True
@@ -56,7 +54,6 @@ def getParentName():
             user_prompt = str(input(f'Is the parent folder name correct? > {parentName}\n(Y/N) ')).lower()
             if user_prompt == 'n':
                 parentName = str(input("Please enter a name for the parent folder > "))
-                continue
             else:
                 parentNameCon = True
     return parentName
@@ -74,18 +71,14 @@ def conSetChildNames(chicken):
                 chicken_name = str(input(f'Enter name for child folder {counter}, or enter "Q" to quit adding folder names > '))
                 if chicken_name.lower() == 'q':
                     changeTheChicken = False
-                    continue
                 else:
                     rentAchicken.append(chicken_name)
                     counter += 1
-                    continue
             chicken = rentAchicken.copy()
-            continue
         elif user_prompt == 'y':
             return chicken
         else:
             print("Invalid response. Please insert chicken.")
-            continue
 
 #get config data
 try:
@@ -131,14 +124,15 @@ newJSON['debug'] = debug
 same = all((newJSON.get(k) == v for k, v in jData.items()))
 
 #create temp json file
-tempfile = os.path.join(os.path.dirname('config.json'), str(uuid.uuid4()))
+path = 'config.json'
+tempfile = os.path.join(os.path.dirname(path), str(uuid.uuid4()))
 
 #to write or not to write thy json
 if same == False:
     with open(tempfile, 'w') as f:
         json.dump(newJSON, f, indent = indent)
     try:
-        os.rename(tempfile, 'config.json')
+        os.rename(tempfile, path)
     except WindowsError:
-        os.remove('config.json')
-        os.rename(tempfile, 'config.json')
+        os.remove(path)
+        os.rename(tempfile, path)
